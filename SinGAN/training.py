@@ -20,7 +20,7 @@ def train(opt, real, Gs, Zs, reals, NoiseAmp):
     print("new shape", real.data.shape)
 
     # reals, sr_list = functions.creat_reals_pyramid_audio(real, reals, opt, verbose=False)
-    reals = functions.creat_reals_pyramid_julius(real, reals, opt, verbose=False)
+    reals = functions.creat_reals_pyramid(real, reals, opt, verbose=False)
     sr_list = opt.SR_pyr
     nfc_prev = 0
 
