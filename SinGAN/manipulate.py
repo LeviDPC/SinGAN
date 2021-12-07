@@ -139,9 +139,6 @@ def SinGAN_generate(Gs, Zs, reals, NoiseAmp, opt, in_s=None, scale_v=1, scale_h=
                     #I_prev = functions.upsampling(I_prev,z_curr.shape[2],z_curr.shape[3])
                     #I_prev = AudioSample.resample_to_julius_static(I_prev, opt.SR_pyr[n - 1], opt.SR_pyr[n])
                     if z_curr.shape != I_prev.shape:
-                        print("We got a problem")
-                        print(z_curr.shape)
-                        print(I_prev.shape)
                         if I_prev.shape[2] < z_curr.shape[2]:
                             dif = z_curr.shape[2] - I_prev.shape[2]
                             I_prev = torch.cat((I_prev, torch.zeros([1, 1, dif], dtype=torch.float32)), dim=2)
