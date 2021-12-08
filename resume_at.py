@@ -69,13 +69,13 @@ if __name__ == '__main__':
     opt.nfc=int(opt.nfc)
     opt.min_nfc=int(opt.min_nfc)
     print(real.data.shape)
-    functions.adjust_scales2audio(real, opt)
+    functions.adjust_scales2data(real, opt)
     opt.stop_scale=len(opt.SR_pyr)-1
     print(real.data.shape)
     Gs, Zs, reals_trash, NoiseAmp = functions.load_trained_pyramid(opt)
     del reals_trash
     reals=[]
-    reals = functions.creat_reals_pyramid_julius(real, reals, opt, verbose=False)
+    reals = functions.creat_reals_pyramid(real, reals, opt, verbose=False)
 
     opt.mode = 'train'
     Gs=Gs[0:opt.level_to_resume_at]
@@ -84,5 +84,5 @@ if __name__ == '__main__':
     in_s = torch.full([1, reals[0].shape[0], reals[0].shape[2]], 0, dtype=torch.float32, device=opt.device)
     if opt.level_to_resume_at < len(opt.SR_pyr):
         train_on_audio_resume(opt, real, Gs, Zs, reals, NoiseAmp, in_s)
-    SinGAN_generate_audio(Gs,Zs,reals,NoiseAmp,opt)
+    SinGAN_generate(Gs,Zs,reals,NoiseAmp,opt)
     my_Logger.close()
