@@ -2,4 +2,4 @@ This project is my Masters Thesis being defended 12/3/2021. It is heavily based 
 
 Link to my audio samples of my project here: https://sites.google.com/view/audiosingan/
 
-Link to paper coming when it's completed.
+A dataset of resulting audio clips and my thesis can be found here: https://drive.google.com/drive/folders/1oHtNeX1whK9kJaOBwYOm0F2dRmDRxLK5?usp=sharing
